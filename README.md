@@ -62,11 +62,11 @@ This section covers changing the website design using this template
 
 This is styled in bootstrap, so use the containers already set up or make new ones
 
-### Colour scheme
+### Root scheme
 
-In index.css, change the 5 colours used throughout the website
-All are dynamically assigned to colouring, so change them only once
-Except for the navbar colour, change this manually as needed
+In index.css, the colours & sizing are set up to use variables
+Most are dynamically assigned to colouring & sizing, so change them only once
+Except for some specific sizing & colours
 
 ### Pages
 
