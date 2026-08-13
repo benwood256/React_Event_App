@@ -1,0 +1,24 @@
+import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
+import NavBar from "../routes/NavBar"; //import the navigation bar
+
+export default function Products() {
+    // Get the location object
+    const location = useLocation();
+
+    // Get the data from the location object
+    const data = location.state;
+
+    // Get the theme from the ThemeContext
+    const { theme } = useContext(ThemeContext);
+    
+    return (
+	<div className={`app ${theme}`}>
+	    <NavBar />
+	    <h1>Products page</h1>
+	    {/* Conditionally render product if it exists */}
+	    <h3>{data?.product || "No products"}</h3>
+	</div>
+    );
+}

@@ -1,0 +1,11 @@
+import NavBar from "../routes/NavBar"; //import the navigation bar component
+
+export default function Home() {
+    return (
+	<div>
+	    {/* Display the navigation bar at the top of the page */}
+	    <NavBar />
+	    <h1>Welcome to the homepage!</h1>
+	</div>
+    );
+}

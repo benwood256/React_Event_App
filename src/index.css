@@ -1,0 +1,230 @@
+/****************************************** Root scheme ******************************************/
+
+:root {
+    /* Colours */
+    --color-primary: #3B82F6;
+    --color-secondary: #1D4ED8;
+    --color-accent: #60A5FA;
+    --color-background: #0F1115;
+    --color-surface: #181B21;
+    --color-border: #292E38;
+    --color-text: #F1F5F9;
+
+    /* Spacing */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 2.5rem;
+
+    /* Border radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+}
+
+/****************************************** Applying scheme ******************************************/
+
+.color-primary {
+  color: var(--color-primary);
+}
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.color-secondary {
+  color: var(--color-secondary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.color-accent {
+  color: var(--color-accent);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+/****************************************** Page layout ******************************************/
+
+/* Forces container to extend to sides of webpage */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/****************************************** App container ******************************************/
+
+.app {
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+/*styling for the dark theme */
+.app.dark {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/*styling for the light theme */
+.app.light {
+    background-color: var(--color-text);
+    color: var(--color-background);
+}
+
+/****************************************** Navbar ******************************************/
+
+/*styling for the navigation menu*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    padding: var(--spacing-md) var(--spacing-lg);
+
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Allows the children of <nav> to be manually positioned (i.e. move dark mode button to the right */
+.navbar nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    margin: 0;
+    padding: 0;
+}
+
+/* Appearance of the named headings */
+.nav-links a {
+    padding: var(--spacing-sm) 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* Appearance when hovering over the headers */
+.nav-links a:hover {
+    color: var(--color-text);
+    background-color: var(--color-primary);
+}
+
+/* Move theme button to the right of the navbar & remove its border */
+.theme-button {
+    margin-left: auto;
+
+    border: none;
+    background: transparent;
+
+    color: var(--color-text); /* In case I change it from an icon -> this will match the pages theme colour */
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+}
+
+/****************************************** Fade in animation ******************************************/
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animated {
+  animation: fadeIn 1.3s ease 0.1s 1;
+}
+
+/****************************************** Footer ******************************************/
+
+.footer {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+
+    color: var(--color-text);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/****************************************** Buttons ******************************************/
+
+.btn {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-md);
+
+    padding: var(--spacing-sm) 1.4rem;
+
+    font-weight: 600;
+    color: var(--color-text);
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Hitting tab starts focusing on navbar then jumps to buttons */
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/****************************************** Card ******************************************/
+
+.custom-card {
+    height: 100%;
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    color: var(--color-text);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.2s ease;
+}
+
+.custom-card:hover {
+    border-color: var(--color-primary);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+}
+
+.custom-card .card-title {
+    color: var(--color-accent);
+    font-weight: 600;
+}
