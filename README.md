@@ -36,6 +36,7 @@ src/
     ├── Button.jsx
     ├── Card.jsx
     └── Footer.jsx
+```
 
 ## Making a copy
 
