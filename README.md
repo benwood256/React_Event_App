@@ -19,66 +19,44 @@
 
 ```text
 src/
-├── main.jsx
-├── index.css
-├── ThemeContext.jsx
-│
-├── routes/
-│   └── NavBar.jsx
-│
+├── components/
+│   ├── Button.jsx
+│   ├── EventCard.jsx
+│   ├── Navbar.jsx
+│   └── ProtectedRoute.jsx
+├── context/
+│   ├── AuthContext.jsx
+│   └── EventContext.jsx
 ├── pages/
-│   ├── Home.jsx
-│   ├── Products.jsx
-│   ├── Contacts.jsx
-│   └── NotFound.jsx
-│
-└── components/
-    ├── Button.jsx
-    ├── Card.jsx
-    └── Footer.jsx
+│   ├── Dashboard.jsx
+│   ├── Event.jsx
+│   ├── Help.jsx
+│   ├── Login.jsx
+│   ├── NotFound.jsx
+│   └── Register.jsx
+├── ThemeContext.jsx
+├── index.css
+└── main.jsx
 ```
 
-## Making a copy
+## main display
 
-Copy this folder from the file
-npm install
-npm install bootstrap
+### main.jsx
 
-## Structure
+I don't need an App.jsx because I'm handling displaying the pages using: const router = createBrowserRouter([])
+This means I'm using the router to determine which page should be displayed, instead of outsourcing to the App.jsx
 
-components/      -> repeatable blocks to be reuseed, already have a structure & a style in css
-pages/           -> the pages for the website which match with the navbar (consistent across all pages)
-routes/          -> design for the navbar at the top of the page for navigation
+### index.css
 
-main.jsx         -> loads all of the components & displays them on the page
-index.css        -> css styling
-ThemeContext.jsx -> controls the dark/light theme
+Handling the styling & positing of elements
 
-## Making changes
+### ThemeContext.jsx
 
-This section covers changing the website design using this template
+This is handling the theme of the pages, this has 2 exports: ThemeProvider & ThemeContext
 
-### Bootstrap
+ThemeProvider -> contains the theme state & tracks (useState) when theme changes
+ThemeContext  -> allows components to access the theme state & the setTheme function
 
-This is styled in bootstrap, so use the containers already set up or make new ones
-
-### Root scheme
-
-In index.css, the colours & sizing are set up to use variables
-Most are dynamically assigned to colouring & sizing, so change them only once
-Except for some specific sizing & colours
-
-### Pages
-
-Create new pages as needed in the pages/ directory
-Or just manually change the names of the files, functions & whereever they've been imported
-
-## Boxes design
-
-To keep a consistent style, I've created Card.jsx
-This acts as a container for text/forms/etc...
-
-Create the bootstrap structure: div for container, then row, then column
-Then within the <div className="col-md-4"> place the <Card>
-
-This keeps a consistent format & style across the whole project
+The ThemeProvider is set in the main.jsx, meaning everything can access it (because all the pages are rendered by the Router)
+The ThemeContext is imported by each 'pages/' page, so they can access the function to set the theme
+                    which can be used on the 'button' which when clicked sets the theme
