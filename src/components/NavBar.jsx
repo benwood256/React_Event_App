@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../ThemeContext"; // Import ThemeContext
+import { ThemeContext } from "../context/ThemeContext"; // Import ThemeContext
 
 // change 'Products' & 'Contacts' & add more if required
 export default function NavBar() {
@@ -15,29 +15,40 @@ export default function NavBar() {
     return (
 	<div className="navbar">
 	    <nav>
-		<ul className="nav-links">
+		<ul className="nav-left">
 		    <li>
 			<Link to="/" className="nav_link">
-			    Home
+			    Dashboard
 			</Link>
 		    </li>
 		    <li>
-			<Link to="/products" className="nav_link">
-			    Products
+			<Link to="/events" className="nav_link">
+			    Events
 			</Link>
 		    </li>
 		    <li>
-			<Link to="/contacts" className="nav_link">
-			    Contacts
+			<Link to="/help" className="nav_link">
+			    Help
 			</Link>
 		    </li>
 		</ul>
 
-		<button
-		    className="theme-button"
-		    onClick={toggleTheme}>
-		    {theme === "dark" ? "☀️" : "🌙"}
-		</button>
+		<div className="nav-right">
+		    <Link to="/login" className="nav_link">
+			Login
+		    </Link>
+
+		    <Link to="/register" className="nav_link">
+			Register
+		    </Link>
+
+		    <button
+			className="theme-button"
+			onClick={toggleTheme}
+		    >
+			{theme === "dark" ? "☀️" : "🌙"}
+		    </button>
+		</div>
 	    </nav>
 	</div>
     );

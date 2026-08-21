@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-export const ThemeContext = createContext('light');
+export const ThemeContext = createContext('dark');
 
 // Provider component that wraps your app
 export const ThemeProvider = ({ children }) => {

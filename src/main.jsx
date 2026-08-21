@@ -7,39 +7,57 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 // Importing the components
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Contacts from "./pages/Contacts";
+import Dashboard from "./pages/Dashboard";
+import Events from "./pages/Events";
+import Help from "./pages/Help";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import Register from "./pages/Register";
 
 // Import the ThemeProvider
-import { ThemeProvider } from "./ThemeContext";
+import { ThemeProvider } from "./context/ThemeContext";
+import { EventProvider } from "./context/EventContext";
 
 // Create a browser router
 const router = createBrowserRouter([
     {
 	path: "/",
-	element: <Home />,
+	element: <Dashboard />,
     },
     {
-	path: "/products",
-	element: <Products />,
+	path: "/events",
+	element: <Events />,
     },
     {
-	path: "/contacts",
-	element: <Contacts />,
+	path: "/help",
+	element: <Help />,
     },
+
+    {
+	path: "/login",
+	element: <Login />,
+    },
+    {
+	path: "/register",
+	element: <Register />,
+    },
+
     {
 	path: "*",
 	element: <NotFound />,
     },
 ]);
 
-// Render the router wrapped in the ThemeProvider
+// StrictMode     -> React is checking my app for potential problems
+// ThemeProvider  -> Provides my theme context to everything inside it (so any page can set the theme)
+// EventProvider  -> The same as the above but for Events (from EventContext.cs)
+// RouterProvider -> Rendering my 'pages' (using the above 'router' function)
 createRoot(document.getElementById("root")).render(
     <StrictMode>
 	<ThemeProvider>
-	    <RouterProvider router={router} />
+	    <EventProvider>
+		<RouterProvider router={router} />
+	    </EventProvider>
 	</ThemeProvider>
     </StrictMode>
 );

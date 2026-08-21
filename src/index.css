@@ -2,13 +2,13 @@
 
 :root {
     /* Colours */
-    --color-primary: #3B82F6;
-    --color-secondary: #1D4ED8;
-    --color-accent: #60A5FA;
-    --color-background: #0F1115;
-    --color-surface: #181B21;
-    --color-border: #292E38;
-    --color-text: #F1F5F9;
+    --color-primary: #D26932;
+    --color-secondary: #A94724;
+    --color-accent: #E8A05B;
+    --color-background: #17120F;
+    --color-surface: #251B15;
+    --color-border: #4A3326;
+    --color-text: #F3E4CF;
 
     /* Spacing */
     --spacing-sm: 0.5rem;
@@ -20,6 +20,16 @@
     --radius-sm: 0.5rem;
     --radius-md: 0.75rem;
     --radius-lg: 1rem;
+}
+
+.app.light {
+    --color-primary: #B85C2E;
+    --color-secondary: #8F3F22;
+    --color-accent: #D98B4A;
+    --color-background: #F5E9D5;
+    --color-surface: #FFF8EC;
+    --color-border: #D8C2A6;
+    --color-text: #2C211A;
 }
 
 /****************************************** Applying scheme ******************************************/
@@ -58,24 +68,30 @@ body {
     box-sizing: border-box;
 }
 
+.no-events-yet {
+    display: flex;
+    align-content: center;
+}
+
 /****************************************** App container ******************************************/
 
 .app {
     min-height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+}
+
+/* Force <main> elements to take up the whole screen (so footer doesn't float just below the <main> elements, its forced to the bottom of the page*/
+.app main {
+    flex: 1;
 }
 
 /*styling for the dark theme */
 .app.dark {
     background-color: var(--color-background);
     color: var(--color-text);
-}
-
-/*styling for the light theme */
-.app.light {
-    background-color: var(--color-text);
-    color: var(--color-background);
 }
 
 /****************************************** Navbar ******************************************/
@@ -101,7 +117,7 @@ body {
     align-items: center;
 }
 
-.nav-links {
+.nav-left {
     list-style: none;
     display: flex;
     align-items: center;
@@ -111,7 +127,8 @@ body {
 }
 
 /* Appearance of the named headings */
-.nav-links a {
+.nav-left a,
+.nav-right a {
     padding: var(--spacing-sm) 0.75rem;
     border-radius: var(--radius-sm);
     color: var(--color-accent);
@@ -120,9 +137,19 @@ body {
 }
 
 /* Appearance when hovering over the headers */
-.nav-links a:hover {
+.nav-left a:hover,
+.nav-right a:hover {
     color: var(--color-text);
     background-color: var(--color-primary);
+}
+
+/* Move Login & Register to the right */
+.nav-right {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
 }
 
 /* Move theme button to the right of the navbar & remove its border */
@@ -138,6 +165,7 @@ body {
 
     font-size: 1.2rem;
 }
+
 
 /****************************************** Fade in animation ******************************************/
 
@@ -198,6 +226,11 @@ button:focus-visible,
 a:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
+}
+
+/* Increase size of the redirect headers in the 'Help' page */
+.redirect-buttons {
+    transform: scale(1.4);
 }
 
 /****************************************** Card ******************************************/

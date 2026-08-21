@@ -1,70 +1,48 @@
-import { useNavigate } from "react-router-dom";
+// external functions
 import { useContext } from "react";
+import { EventContext } from "../context/EventContext";
 
-// personal imports
-import { ThemeContext } from "../ThemeContext"; // Import ThemeContext
-import NavBar from "../routes/NavBar";
-import Footer from "../components/Footer";
+// from 'context' directory
+import { ThemeContext } from "../context/ThemeContext"; // Import ThemeContext
+
+// from 'components' directory
 import Button from "../components/Button";
 import Card from "../components/Card";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
-export default function Home() {
-    const nav = useNavigate();
+export default function Dashboard() {
 
-    // Get the theme and setTheme from the ThemeContext
-    const { theme, setTheme } = useContext(ThemeContext);
+    // Get the theme from the ThemeContext
+    const { theme } = useContext(ThemeContext);
 
+    // this populates a new 'events' variable with the EventContext array (from EventContext.jsx)
+    // useContext is used to retrieve the data within EventContext
+    const { events } = useContext(EventContext);
+    
+    // 'events' 
     return (
 	<div className={`app ${theme}`}>
 	    <NavBar />
 
 	    <main className="container py-4">
-		<h1 className="mb-5">Home</h1>
+		<h1 className="mb-5">Welcome, {name}</h1>
 
 		<div className="row g-4">
-
-		    <div className="col-md-12">
-			<Card title="Welcome">
-			    <p>
-				Welcome to the React + Vite starter template.
-			    </p>
-
-			    <Button>
-				Test Button
-			    </Button>
-			</Card>
-		    </div>
-
-		    <div className="col-md-6">
-			<Card title="About">
-			    <p>
-				This is a reusable React template with
-				Bootstrap, React Router and theme support.
-			    </p>
-
-			    <Button variant="secondary">
-				Learn More
-			    </Button>
-			</Card>
-		    </div>
-
-		    <div className="col-md-6">
-			<Card title="Getting Started">
-			    <p>
-				Replace this content with whatever your
-				project needs.
-			    </p>
-
-			    <Button>
-				Get Started
-			    </Button>
-			</Card>
-		    </div>
-
+		    {events.map((event) => (
+			<div className="col-md-4" key={event.id}>
+			    <Card title={event.title}>
+				<p>{event.description}</p>
+				<Button>View Event</Button>
+			    </Card>
+			</div>
+		    ))}
 		</div>
+
 	    </main>
 
 	    <Footer />
 	</div>
     );
 }
+

@@ -1,12 +1,17 @@
 // if a page can't be found, this will display (instead of a big blank/broken screen)
 
+// external functions
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../ThemeContext";
-import NavBar from "../routes/NavBar";
-import Footer from "../components/Footer";
-import Card from "../components/Card";
+
+// from 'context' directory
+import { ThemeContext } from "../context/ThemeContext";
+
+// from 'components' directory
 import Button from "../components/Button";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 export default function NotFound() {
     const { theme } = useContext(ThemeContext);

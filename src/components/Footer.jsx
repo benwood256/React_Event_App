@@ -7,11 +7,15 @@ export default function Footer() {
                 <div className="footer-content">
 
                     <p className="mb-0">
-                        © 2026 My Website
+                        © 2026 Event Tracking Website
                     </p>
 
                     <p className="mb-0">
                         Built with React + Vite
+                    </p>
+
+                    <p className="mb-0">
+                        Packages: Bootstrap & Formik
                     </p>
 
                 </div>

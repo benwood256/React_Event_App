@@ -2,7 +2,7 @@
 export default function Button({
     children,
     type = "button",
-    variant = "primary",
+    variant = "dark",
     onClick,
 }) {
     return (

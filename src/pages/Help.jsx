@@ -1,95 +1,129 @@
+// external functions
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom"; // so I can add links to the Buttons (to the other pages)
 
-// personal imports
-import { ThemeContext } from "../ThemeContext";
-import NavBar from "../routes/NavBar";
-import Footer from "../components/Footer";
-import Card from "../components/Card";
+// from 'context' directory
+import { ThemeContext } from "../context/ThemeContext";
+
+// from 'components' directory
 import Button from "../components/Button";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
-export default function Contacts() {
+export default function Help() {
     const { theme } = useContext(ThemeContext);
+    const navigate = useNavigate();
 
     return (
 	<div className={`app ${theme}`}>
 	    <NavBar />
 
 	    <main className="container py-4">
-		<h1 className="mb-5">Contacts</h1>
+		<h1 className="mb-5">Help</h1>
 
 		<div className="row g-4">
+		    
+		    <em><h5>Click any of the below headers to jump to the respective pages</h5></em>
 
-		    <div className="col-md-6">
-			<Card title="Contact Information">
-			    <p>
-				Email: example@email.com
-			    </p>
+		    <div className="col-md-3">
+			<Card>
+			    <div className="redirect-buttons">
+				<Button onClick={() => navigate("/login")}>
+				    Login
+				</Button>
+			    </div>
 
+			    <hr></hr>
 			    <p>
-				Phone: 01234 567890
-			    </p>
-
-			    <p>
-				Address: 123 Example Street
+				Enter your email & password to log in to your account
 			    </p>
 			</Card>
 		    </div>
 
-		    <div className="col-md-6">
-			<Card title="Contact Form">
-			    <form>
-				<div className="mb-3">
-				    <label
-					htmlFor="name"
-					className="form-label"
-				    >
-					Name
-				    </label>
-
-				    <input
-					type="text"
-					className="form-control"
-					id="name"
-					placeholder="Your name"
-				    />
-				</div>
-
-				<div className="mb-3">
-				    <label
-					htmlFor="email"
-					className="form-label"
-				    >
-					Email
-				    </label>
-
-				    <input
-					type="email"
-					className="form-control"
-					id="email"
-					placeholder="you@example.com"
-				    />
-				</div>
-
-				<div className="mb-3">
-				    <label
-					htmlFor="message"
-					className="form-label"
-				    >
-					Message
-				    </label>
-
-				    <textarea
-					className="form-control"
-					id="message"
-					rows="4"
-					placeholder="Your message..."
-				    />
-				</div>
-
-				<Button type="submit">
-				    Send Message
+		    <div className="col-md-3">
+			<Card>
+			    <div className="redirect-buttons">
+				<Button onClick={() => navigate("/register")}>
+				    Register
 				</Button>
-			    </form>
+			    </div>
+
+			    <hr></hr>
+			    <p>
+				Here you can register an account if your new to this website
+			    </p>
+
+			</Card>
+		    </div>
+
+
+		    <div className="col-md-6">
+			<Card>
+
+			    <div className="redirect-buttons">
+				<Button onClick={() => navigate("/")}>
+				    Dashboard
+				</Button>
+			    </div>
+
+			    <hr></hr>
+			    <p>
+				This will display your events.
+				You need to populate them in the 'Events' page.
+				To do this, click the 'Events' panel at the top,
+				or click the button in the middle to swap over.
+			    </p>
+			</Card>
+		    </div>
+
+		    <div className="col-md-12">
+			<Card>
+
+			    <div className="redirect-buttons">
+				<Button onClick={() => navigate("/events")}>
+				    Events
+				</Button>
+			    </div>
+
+			    <hr></hr>
+			    <div className="mb-3">
+				<h5>The Display</h5>
+			    </div>
+			    <p>
+				On the left is the view of your current Events.
+				On the right you can add new events.
+			    </p>
+			    <hr></hr>
+
+			    <div className="mb-3">
+				<h5>Add Events</h5>
+			    </div>
+			    <p>
+				On the right, populate the page & click the 'Add Event' button
+				at the bottom.
+			    </p>
+			    <hr></hr>
+
+			    <div className="mb-3">
+				<h5>Edit Event Button</h5>
+			    </div>
+			    <p>
+				On each event there is a clickable 'Edit Event'.
+				After clicking, you can edit the event on the right.
+				As the 'Add Event' will swap for 'Edit Event'.
+			    </p>
+			    <hr></hr>
+
+			    <div className="mb-3">
+				<h5>Delete Event Button</h5>
+			    </div>
+			    <p>
+				Clicking this removes the button.
+				You can see this happening in the Event page
+				& swapping to the Dashboard it has been removed.
+			    </p>
+
 			</Card>
 		    </div>
 
