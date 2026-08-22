@@ -1,5 +1,7 @@
 # A React+Vite app for users to register/login & then add, update or delete events that are displayed on their dashboard
 
+The GitHub link: https://github.com/benwood256/Temporary_react_app
+
 ## Functionality
 
 ### Register & Login
