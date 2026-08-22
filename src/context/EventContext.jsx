@@ -11,23 +11,7 @@ export const EventContext = createContext();
 export const EventProvider = ({ children }) => {
 
     // create the variable events & the function setEvents to change events
-    const [events, setEvents] = useState([
-        {
-            id: 1,
-            title: "Music Festival",
-            description: "A live music event.",
-        },
-        {
-            id: 2,
-            title: "Football Match",
-            description: "Local football match.",
-        },
-        {
-            id: 3,
-            title: "Food Festival",
-            description: "A festival celebrating local food.",
-        },
-    ]);
+    const [events, setEvents] = useState([]);
 
     // Allows events variable & the setEvents function to be avilable through the EventContext variable
     // children -> as above comment, renders what I put inside the provider (check main.jsx)

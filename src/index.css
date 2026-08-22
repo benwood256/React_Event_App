@@ -68,10 +68,6 @@ body {
     box-sizing: border-box;
 }
 
-.no-events-yet {
-    display: flex;
-    align-content: center;
-}
 
 /****************************************** App container ******************************************/
 
@@ -260,4 +256,73 @@ a:focus-visible {
 .custom-card .card-title {
     color: var(--color-accent);
     font-weight: 600;
+}
+
+/****************************************** Dashboard Page ******************************************/
+
+.dashboard-event p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/****************************************** Event Page ******************************************/
+
+/* Force listed events left */
+.event-list {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-align: left;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.event-item h3 {
+    margin: 0;
+}
+
+.btn-danger {
+    background-color: red;
+    margin-left: auto;
+}
+
+/* Change colour & styling of 'edit event' */
+.edit-mode h2 {
+    transform: scale(1.1);
+}
+
+.edit-mode button {
+    transform: scale(1.05);
+}
+
+.edit-mode h2,
+.edit-mode button {
+    transition: transform 0.5s ease;
+}
+
+.edit-mode {
+    background-color: var(--color-accent);
+    border-radius: 1rem;
+    padding: 0.25rem;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.edit-mode:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+}
+
+/* Stop the Card itself from moving */
+.edit-mode .custom-card:hover {
+    transform: none;
+    box-shadow: none;
 }
