@@ -71,8 +71,7 @@ export default function Help() {
 			    <p>
 				This will display your events.
 				You need to populate them in the 'Events' page.
-				To do this, click the 'Events' panel at the top,
-				or click the button in the middle to swap over.
+				To do this, click the 'Events' panel at the top.
 			    </p>
 			</Card>
 		    </div>
@@ -119,9 +118,9 @@ export default function Help() {
 				<h5>Delete Event Button</h5>
 			    </div>
 			    <p>
-				Clicking this removes the button.
+				Clicking this removes the event.
 				You can see this happening in the Event page
-				& swapping to the Dashboard it has been removed.
+				& swapping to the Dashboard it has also been removed.
 			    </p>
 
 			</Card>

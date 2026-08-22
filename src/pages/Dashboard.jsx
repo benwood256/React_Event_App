@@ -3,8 +3,9 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 // from 'context' directory
-import { ThemeContext } from "../context/ThemeContext"; // Import ThemeContext
+import { ThemeContext } from "../context/ThemeContext"; 
 import { EventContext } from "../context/EventContext";
+import { AuthContext } from "../context/AuthContext";
 
 // from 'components' directory
 import Button from "../components/Button";
@@ -20,6 +21,9 @@ export default function Dashboard() {
     // Get the theme from the ThemeContext
     const { theme } = useContext(ThemeContext);
 
+    // Check if the user is logged in or not
+    const { user } = useContext(AuthContext);
+
     // this populates a new 'events' variable with the EventContext array (from EventContext.jsx)
     // useContext is used to retrieve the data within EventContext
     const { events } = useContext(EventContext);
@@ -30,7 +34,7 @@ export default function Dashboard() {
 	    <NavBar />
 
 	    <main className="container py-4">
-		<h1 className="mb-5">Welcome, {name}</h1>
+		<h1 className="mb-5">{user ? user.firstName : "Guest"}'s Dashboard</h1>
 
 		<div className="row g-4">
 		    {events.length === 0 ? (

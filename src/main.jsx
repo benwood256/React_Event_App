@@ -17,6 +17,7 @@ import Register from "./pages/Register";
 // Import the ThemeProvider
 import { ThemeProvider } from "./context/ThemeContext";
 import { EventProvider } from "./context/EventContext";
+import { AuthProvider } from "./context/AuthContext";
 
 // Create a browser router
 const router = createBrowserRouter([
@@ -55,9 +56,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
     <StrictMode>
 	<ThemeProvider>
-	    <EventProvider>
-		<RouterProvider router={router} />
-	    </EventProvider>
+	    <AuthProvider>
+		<EventProvider>
+		    <RouterProvider router={router} />
+		</EventProvider>
+	    </AuthProvider>
 	</ThemeProvider>
     </StrictMode>
 );
