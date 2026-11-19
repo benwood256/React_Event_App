@@ -1,6 +1,9 @@
 import { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext"; // Import ThemeContext
+import { AuthContext } from "../context/AuthContext";
+
+import Button from "./Button";
 
 // change 'Products' & 'Contacts' & add more if required
 export default function NavBar() {
@@ -10,6 +13,14 @@ export default function NavBar() {
 
     const toggleTheme = () => {
 	setTheme(theme === "dark" ? "light" : "dark");
+    };
+    
+    // if user is logged in
+    const { user, isLoggedIn, logout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+	logout();
+	navigate("/login");
     };
     
     return (
@@ -33,22 +44,40 @@ export default function NavBar() {
 		    </li>
 		</ul>
 
-		<div className="nav-right">
-		    <Link to="/login" className="nav_link">
-			Login
-		    </Link>
+		    <div className="nav-right">
+			{isLoggedIn ? (
+			    <>
+				<span className="nav-user">
+				    {user.firstName}
+				</span>
 
-		    <Link to="/register" className="nav_link">
-			Register
-		    </Link>
+				<Button
+				    className="nav_link"
+				    onClick={handleLogout}
+				>
+				    Logout
+				</Button>
+			    </>
+			) : (
+			    <>
+				<Link to="/login" className="nav_link">
+				    Login
+				</Link>
 
-		    <button
-			className="theme-button"
-			onClick={toggleTheme}
-		    >
-			{theme === "dark" ? "☀️" : "🌙"}
-		    </button>
-		</div>
+				<Link to="/register" className="nav_link">
+				    Register
+				</Link>
+			    </>
+			)}
+
+			<button
+			    className="theme-button"
+			    onClick={toggleTheme}
+			>
+			    {theme === "dark" ? "☀️" : "🌙"}
+			</button>
+		    </div>
+
 	    </nav>
 	</div>
     );

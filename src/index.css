@@ -266,6 +266,11 @@ a:focus-visible {
     gap: 1rem;
 }
 
+.not-logged-in {
+    margin-top: 20rem;
+}
+
+
 /****************************************** Event Page ******************************************/
 
 /* Force listed events left */
