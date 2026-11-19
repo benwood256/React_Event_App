@@ -44,13 +44,13 @@ src/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/benwood256/Temporary_react_app.git
+   git clone https://github.com/benwood256/React_Event_App.git
    ```
 
 2. Navigate into the project directory:
 
    ```bash
-   cd Temporary_react_app
+   cd React_Event_App
    ```
 
 3. Install dependencies:
