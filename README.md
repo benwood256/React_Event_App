@@ -2,8 +2,6 @@
 
 A React-based event management application built with Vite, allowing users to register, log in, and manage events through an interactive dashboard.
 
-GitHub Repository: https://github.com/benwood256/Temporary_react_app
-
 ## Features
 
 - **User Registration & Login** – Register new users and log in through the application.
